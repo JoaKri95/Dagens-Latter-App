@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23D56" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Flags" representedClassName="Flags" syncable="YES">
+        <attribute name="explicit" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="nsfw" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="political" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="racist" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="religious" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sexist" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="joke" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Joke" inverseName="flags" inverseEntity="Joke"/>
     </entity>
-    <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-    </elements>
+    <entity name="Joke" representedClassName="Joke" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="comment" optional="YES" attributeType="String"/>
+        <attribute name="delivery" optional="YES" attributeType="String"/>
+        <attribute name="error" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="isRated" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isUserCreated" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="joke" optional="YES" attributeType="String"/>
+        <attribute name="lang" optional="YES" attributeType="String"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="safe" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="setup" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="flags" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Flags" inverseName="joke" inverseEntity="Flags"/>
+    </entity>
 </model>
